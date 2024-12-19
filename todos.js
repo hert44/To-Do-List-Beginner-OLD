@@ -1,6 +1,3 @@
-let appService = document.getElementById("appBackground");
-appService.style.display = "block";
-appService.style.filter = "brightness(20%)"
 
 
 setTimeout(()=>{startPrompt()},200);
@@ -121,5 +118,16 @@ ${finalListN}
     prompt(`Are you sure you want to quit?
 
                                 (press "Enter" to confirm)`)
-    appService.style.display = "none";
+
+    var buttonsContainerJ = document.getElementById("buttonsContainer");              
+    var restartButton = document.createElement("button");                           
+    buttonsContainerJ.appendChild(restartButton);
+    restartButton.style.scale = "1.6";
+    restartButton.textContent = "Restart";
+    restartButton.addEventListener("click", function() {
+        buttonsContainerJ.removeChild(restartButton);
+        startPrompt();
+    })
+    
+
 }
